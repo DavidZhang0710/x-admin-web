@@ -10,8 +10,15 @@ export default {
         pageSize: searchModel.pageSize,
         id: searchModel.id,
         userId: searchModel.userId,
-        username: searchModel.username
+        fileName: searchModel.fileName
       }
+    })
+  },
+  addRecord(record) {
+    return request({
+      url: '/sys/record',
+      method: 'post',
+      data: record
     })
   },
   deleteRecordById(id) {

@@ -13,12 +13,15 @@
 </template>
 
 <script>
+import recordApi from '@/api/recordManage'
+import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
             picdata: '',
             responseData: null,
             previewImage: null,
+            recordForm: {}
         }
     },
     methods: {
@@ -30,14 +33,24 @@ export default {
                     this.previewImage = URL.createObjectURL(file);
                     const formData = new FormData();
                     formData.append('image', bytes);
-                    axios.post('http://localhost:9998/infer', formData, {
+                    axios.post(`${process.env.VUE_APP_FLASK_API}/infer`, formData, {
                         headers: {
                             'Content-Type': 'multipart/form-data'
                         }
                     })
                         .then(response => {
-                            this.responseData = response.data
-                            console.log(response.data);
+                            this.responseData = response.data;
+                            this.recordForm.userId = this.id;
+                            this.recordForm.fileName = file.name;
+                            const { pred, values } = response.data;
+                            this.recordForm.result = JSON.stringify({ pred, values });
+                            console.log(this.recordForm);
+                            recordApi.addRecord(this.recordForm).then(response => {
+                                this.$message({
+                                    message: response.message,
+                                    type: 'success'
+                                });
+                            })
                         })
                         .catch(error => {
                             // 处理错误
@@ -65,14 +78,17 @@ export default {
             });
         }
     },
+    id: '0',
     computed: {
         formattedJson() {
             return JSON.stringify(this.responseData, null, 4);
-        }
+        },
+        ...mapGetters([
+            'id'
+        ])
     }
 
 }
 </script>
 
-<style>
-</style>
+<style></style>

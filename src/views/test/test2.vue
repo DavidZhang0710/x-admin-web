@@ -5,7 +5,7 @@
             <el-row>
                 <el-input v-model="searchModel.userId" placeholder="用户ID"></el-input>
                 <el-input v-model="searchModel.id" placeholder="记录ID"></el-input>
-                <el-input v-model="searchModel.username" placeholder="用户名"></el-input>
+                <el-input v-model="searchModel.fileName" placeholder="图片文件名"></el-input>
                 <el-button @click="getRecordList" type="primary" round icon="el-icon-search">搜索</el-button>
             </el-row>
         </el-card>
@@ -13,19 +13,21 @@
         <!-- 查询结果 -->
         <el-card id="result">
             <template>
-                <el-table :data="userList" stripe style="width: 100%">
+                <el-table :data="recordList" stripe style="width: 100%">
                     <el-table-column label="#" width="80">
                         <template slot-scope="scope">
                             {{ (searchModel.pageNo - 1) * searchModel.pageSize + scope.$index + 1 }}
                         </template>
                     </el-table-column>
-                    <el-table-column prop="id" label="用户ID" width="180">
+                    <el-table-column prop="id" label="记录ID" width="120">
                     </el-table-column>
-                    <el-table-column prop="username" label="用户名" width="180">
+                    <el-table-column prop="userId" label="用户ID" width="120">
                     </el-table-column>
-                    <el-table-column prop="telephone" label="图片路径" width="180">
+                    <el-table-column prop="fileName" label="图片文件名" width="120">
                     </el-table-column>
-                    <el-table-column prop="email" label="结果">
+                    <el-table-column prop="time" label="时间" width="180">
+                    </el-table-column>
+                    <el-table-column prop="result" label="结果">
                     </el-table-column>
                     <el-table-column label="操作" width="180">
                         <template slot-scope="scope">
@@ -86,7 +88,7 @@ export default {
                         type: 'success',
                         message: response.message
                     });
-                this.getRecordList();
+                    this.getRecordList();
                 });
             }).catch(() => {
                 this.$message({
