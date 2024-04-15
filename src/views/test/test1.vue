@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="previewImage">
-            <img :src="previewImage" alt="Preview">
+            <img :src="previewImage" alt="Preview" :style="{ width: '200px', height: '150px' }">
         </div>
         <div>
             <input type="file" @change="handleFileChange">
