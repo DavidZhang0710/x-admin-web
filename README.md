@@ -1,40 +1,57 @@
 # Admin System Front-end
 
-This is an Admin System Front-end based on [vue-admin-template](https://github.com/PanJiaChen/vue-admin-template)
+This is an Admin System Front-end based on [vue-admin-template](https://github.com/PanJiaChen/vue-admin-template).
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Software/Package version requirement:
 
 ```
-Give examples
+npm <= 8.1.0
+node.js <= 16.12.0
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Clone the project and use npm to install dependency
 
 ```
-Give the example
+# clone the project
+git clone https://github.com/DavidZhang0710/x-admin-web.git
+
+# enter the project directory
+cd x-admin-web
+
+# install dependency
+npm install
 ```
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+Here you have a project ready to run.
 
 ## Running
 
-Explain how to run the automated tests for this system
+First you need to set up the configuration in ```.env.development```, and make sure the value of ```VUE_APP_BASE_API``` is your back-end port.
+```
+# just a flag
+ENV = 'development'
+
+# base api
+VUE_APP_BASE_API = 'http://localhost:9999'
+```
+Now you can run the project.
+```
+# develop
+npm run dev
+```
+
+## Further Applications
+
+I also develop a complete system based on this front-end project and [a back-end project](https://github.com/DavidZhang0710/x-admin-back).
+For more information, see in the branch [project](https://github.com/DavidZhang0710/x-admin-web/tree/project).
 
 
 ## Built With
