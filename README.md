@@ -1,6 +1,7 @@
-# Admin System Front-end (基于视觉认知的交通流量自动识别方法的研究与实现)
+# Traffic Flow Recognition System Front-end
 
-This is an Admin System Front-end based on [vue-admin-template](https://github.com/PanJiaChen/vue-admin-template).
+The Front-end of a Traffic Flow Recognition System.
+The Traffic Flow Recognition System is build up with three module. One is this Front-end, a Spring Boot [Back-end](https://github.com/DavidZhang0710/x-admin-back/tree/project), and a Flask Back-end to provide algorithm API.
 
 ## Getting Started
 
@@ -21,7 +22,7 @@ Clone the project and use npm to install dependency
 
 ```
 # clone the project
-git clone https://github.com/DavidZhang0710/x-admin-web.git
+git clone -b project https://github.com/DavidZhang0710/x-admin-web.git
 
 # enter the project directory
 cd x-admin-web
@@ -34,25 +35,20 @@ Here you have a project ready to run.
 
 ## Running
 
-First you need to set up the configuration in ```.env.development```, and make sure the value of ```VUE_APP_BASE_API``` is your back-end port.
+First you need to set up the configuration in ```.env.development```, making sure the value of ```VUE_APP_BASE_API``` is your back-end port, and the value of ```VUE_APP_FLASK_API``` is your algorithm API back-end port.
 ```
 # just a flag
 ENV = 'development'
 
 # base api
 VUE_APP_BASE_API = 'http://localhost:9999'
+VUE_APP_FLASK_API = 'http://localhost:9998'
 ```
 Now you can run the project.
 ```
 # develop
 npm run dev
 ```
-
-## Further Applications
-
-I also develop a complete system based on this front-end project and [a back-end project](https://github.com/DavidZhang0710/x-admin-back).
-For more information, see in the branch [project](https://github.com/DavidZhang0710/x-admin-web/tree/project).
-
 
 ## Built With
 
