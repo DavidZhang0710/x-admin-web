@@ -1,7 +1,12 @@
 # Traffic Flow Recognition System Front-end
 
 The Front-end of a Traffic Flow Recognition System.
+
 The Traffic Flow Recognition System is build up with three module. One is this Front-end, a Spring Boot [Back-end](https://github.com/DavidZhang0710/x-admin-back/tree/project), and a Flask Back-end to provide algorithm API.
+
+The framework and workflow diagram are as shown in the followed figure.
+
+![Project Diagram](project-diagram.png)
 
 ## Getting Started
 
